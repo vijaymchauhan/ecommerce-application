@@ -12,6 +12,13 @@
                 <span class="app-menu__label">Dashboard</span>
             </a>
         </li>
+        <li>
+            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.brands.index' ? 'active' : '' }}" href="{{ route('admin.brands.index') }}">
+                <i class="app-menu__icon fa fa-briefcase"></i>
+                <span class="app-menu__label">Brands</span>
+            </a>
+        </li>
+
         <li class="treeview">
             <a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-users"></i>
                 <span class="app-menu__label">Users</span>
@@ -30,7 +37,8 @@
             </ul>
         </li>
         <li>
-            <a class="app-menu__item" href="#"><i class="app-menu__icon fa fa-cogs"></i>
+            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.settings' ? 'active' : '' }}" href="{{ route('admin.settings') }}">
+                <i class="app-menu__icon fa fa-cogs"></i>
                 <span class="app-menu__label">Settings</span>
             </a>
         </li>

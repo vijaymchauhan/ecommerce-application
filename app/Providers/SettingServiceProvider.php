@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Setting;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Config;
 
 class SettingServiceProvider extends ServiceProvider
 {
@@ -28,7 +32,7 @@ class SettingServiceProvider extends ServiceProvider
     {
         //
         // only use the Settings package if the Settings table is present in the database
-        if (!\App::runningInConsole() && count(Schema::getColumnListing('settings'))) {
+        if (!App::runningInConsole() && count(Schema::getColumnListing('settings'))) {
             $settings = Setting::all();
             foreach ($settings as $key => $setting) {
                 Config::set('settings.' . $setting->key, $setting->value);

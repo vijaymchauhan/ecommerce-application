@@ -19,14 +19,26 @@ Route::group(['prefix' => 'admin'], function () {
 
     });
 
+    Route::group(['prefix'  =>   'categories'], function() {
+
+        Route::get('/', 'App\Http\Controllers\Admin\CategoryController@index')->name('admin.categories.index');
+        Route::get('/create', 'App\Http\Controllers\Admin\CategoryController@create')->name('admin.categories.create');
+        Route::post('/store', 'App\Http\Controllers\Admin\CategoryController@store')->name('admin.categories.store');
+        Route::get('/{id}/edit', 'App\Http\Controllers\Admin\CategoryController@edit')->name('admin.categories.edit');
+        Route::post('/update', 'App\Http\Controllers\Admin\CategoryController@update')->name('admin.categories.update');
+        Route::get('/{id}/delete', 'App\Http\Controllers\Admin\CategoryController@delete')->name('admin.categories.delete');
+    
+    });
+
+
     Route::group(['prefix' => 'brands'], function () {
 
-        Route::get('/', 'Admin\BrandController@index')->name('admin.brands.index');
-        Route::get('/create', 'Admin\BrandController@create')->name('admin.brands.create');
-        Route::post('/store', 'Admin\BrandController@store')->name('admin.brands.store');
-        Route::get('/{id}/edit', 'Admin\BrandController@edit')->name('admin.brands.edit');
-        Route::post('/update', 'Admin\BrandController@update')->name('admin.brands.update');
-        Route::get('/{id}/delete', 'Admin\BrandController@delete')->name('admin.brands.delete');
+        Route::get('/', 'App\Http\Controllers\Admin\BrandController@index')->name('admin.brands.index');
+        Route::get('/create', 'App\Http\Controllers\Admin\BrandController@create')->name('admin.brands.create');
+        Route::post('/store', 'App\Http\Controllers\Admin\BrandController@store')->name('admin.brands.store');
+        Route::get('/{id}/edit', 'App\Http\Controllers\Admin\BrandController@edit')->name('admin.brands.edit');
+        Route::post('/update', 'App\Http\Controllers\Admin\BrandController@update')->name('admin.brands.update');
+        Route::get('/{id}/delete', 'App\Http\Controllers\Admin\BrandController@delete')->name('admin.brands.delete');
 
     });
 

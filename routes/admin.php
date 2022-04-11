@@ -1,7 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
 
-
 Route::group(['prefix' => 'admin'], function () {
 
     Route::get('login', 'App\Http\Controllers\Admin\LoginController@showLoginForm')->name('admin.login');
@@ -40,6 +39,17 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('/update', 'App\Http\Controllers\Admin\BrandController@update')->name('admin.brands.update');
         Route::get('/{id}/delete', 'App\Http\Controllers\Admin\BrandController@delete')->name('admin.brands.delete');
 
+    });
+
+    Route::group(['prefix'  =>   'attributes'], function() {
+
+        Route::get('/', 'App\Http\Controllers\Admin\AttributeController@index')->name('admin.attributes.index');
+        Route::get('/create', 'App\Http\Controllers\Admin\AttributeController@create')->name('admin.attributes.create');
+        Route::post('/store', 'App\Http\Controllers\Admin\AttributeController@store')->name('admin.attributes.store');
+        Route::get('/{id}/edit', 'App\Http\Controllers\Admin\AttributeController@edit')->name('admin.attributes.edit');
+        Route::post('/update', 'App\Http\Controllers\Admin\AttributeController@update')->name('admin.attributes.update');
+        Route::get('/{id}/delete', 'App\Http\Controllers\Admin\AttributeController@delete')->name('admin.attributes.delete');
+    
     });
 
 });

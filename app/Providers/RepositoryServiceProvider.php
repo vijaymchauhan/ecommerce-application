@@ -9,6 +9,7 @@ class RepositoryServiceProvider extends ServiceProvider
 
     protected $repositories = [
         \App\Contracts\CategoryContract::class => \App\Repositories\CategoryRepository::class,
+        \App\Contracts\AttributeContract::class => \App\Repositories\AttributeRepository::class,
     ];
 
     /**
